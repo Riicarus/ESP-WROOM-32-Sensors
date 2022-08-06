@@ -10,7 +10,6 @@ void setup()
     light_sensor_app_main();
     WiFi_info_report_app_main();
     Mqtt_app_main();
-    device_alive_check_app_main();
 
 }
 
