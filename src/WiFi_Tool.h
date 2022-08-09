@@ -51,7 +51,7 @@ void WiFi_Connect(std::string name, std::string password, bool report)
         return;
     }
 
-    oled_draw_in_two("WiFi Connected!");
+    oled_update_notice("WiFi Connected!");
     Serial.println("WiFi Connected!");
     Serial.printf("IP Address: %s\r\n", WiFi.localIP().toString().c_str());
     Serial.printf("Mac Address: %s\r\n", WiFi.macAddress().c_str());

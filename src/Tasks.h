@@ -35,8 +35,8 @@ void DHT11_task(void *DHT11_task)
 
             printf("Temp= %d, Humi= %d\r\n", Temp, Humi);
 
-            std::string msg = "T/H: " + std::to_string(Temp)+ "C/" + std::to_string(Humi) + "%";
-            oled_draw_in_two(msg.c_str());
+            std::string msg = std::to_string(Temp)+ "C/" + std::to_string(Humi) + "%";
+            oled_update_TH(msg.c_str());
 
             if (isWiFiConnected())
             {
@@ -96,9 +96,8 @@ void light_sensor_task(void *light_sensor_task)
 
         Serial.printf("Light: %d\r\n", light_sensor_data);
 
-        std::string detail = (light_sensor_data ? "dark" : "bright");
-        std::string msg = "Light: " + detail;
-        oled_draw_in_two(msg.c_str());
+        std::string msg = (light_sensor_data ? "dark" : "bright");
+        oled_update_light(msg.c_str());
 
         if ((timer >= 10) && (timer % 10 == 0) && isWiFiConnected())
         {

@@ -8,7 +8,7 @@ void setup()
 
     oled_setup();
 
-    oled_draw_in_two("Device Start");
+    oled_update_notice("Device Start");
 
     BLE_app_main();
     DHT11_app_main();
