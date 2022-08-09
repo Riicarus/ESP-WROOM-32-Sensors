@@ -11,7 +11,6 @@
 #include <Light_Sensor.h>
 #include <MqttCallBacks.h>
 #include <WiFi_Tool.h>
-#include <oled.h>
 
 // ------------------------ DHT11 Sensor Task ------------------------//
 
@@ -34,9 +33,6 @@ void DHT11_task(void *DHT11_task)
             Humi = DHT11Data[0];
 
             printf("Temp= %d, Humi= %d\r\n", Temp, Humi);
-
-            std::string msg = std::to_string(Temp)+ "C/" + std::to_string(Humi) + "%";
-            oled_update_TH(msg.c_str());
 
             if (isWiFiConnected())
             {
@@ -95,9 +91,6 @@ void light_sensor_task(void *light_sensor_task)
         int light_sensor_data = readLightSensorData();
 
         Serial.printf("Light: %d\r\n", light_sensor_data);
-
-        std::string msg = (light_sensor_data ? "dark" : "bright");
-        oled_update_light(msg.c_str());
 
         if ((timer >= 10) && (timer % 10 == 0) && isWiFiConnected())
         {

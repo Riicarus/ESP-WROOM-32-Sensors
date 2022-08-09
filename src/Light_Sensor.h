@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#define LIGHT_SENSOR_PIN 32
+#define LIGHT_SENSOR_PIN 18
 
 void light_sensor_start() {
     pinMode(LIGHT_SENSOR_PIN, INPUT);

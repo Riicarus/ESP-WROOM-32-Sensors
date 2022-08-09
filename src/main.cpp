@@ -1,14 +1,9 @@
 #include <Arduino.h>
 #include <Tasks.h>
-#include <oled.h>
 
 void setup()
 {
     Serial.begin(115200);
-
-    oled_setup();
-
-    oled_update_notice("Device Start");
 
     BLE_app_main();
     DHT11_app_main();

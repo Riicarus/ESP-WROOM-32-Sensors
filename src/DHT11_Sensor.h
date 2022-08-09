@@ -6,7 +6,7 @@
 #include "freertos/task.h"
 #include "sdkconfig.h"
 
-#define DHT11_PIN GPIO_NUM_33 //可通过宏定义，修改引脚
+#define DHT11_PIN GPIO_NUM_19 //可通过宏定义，修改引脚
 
 #define DHT11_CLR gpio_set_level(DHT11_PIN, 0)
 #define DHT11_SET gpio_set_level(DHT11_PIN, 1)
